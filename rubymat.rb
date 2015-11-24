@@ -29,8 +29,7 @@ def read_matrices inp_path
     m2 = nil
 
     File.open(inp_path) do |f|
-      matlist = f.read.split  
-      matlist.map! { |m| m.to_i }
+      matlist = f.read.split.map { |m| m.to_i }
 
       mls = matlist.each_slice(matlist.length/2).to_a
       
@@ -55,10 +54,10 @@ m1, m2 = read_matrices inp_path
 prod = mat_mult(m1, m2)
 
 puts "Matrix 1"
-p m1
+m1.each { |m| p m }
 puts "Matrix 2"
-p m2
+m2.each { |m| p m }
 puts "Product Matrix"
-p prod
+prod.each { |m| p m }
 puts "Sorted Matrix"
-p bubble_sort prod
+(bubble_sort prod).each { |m| p m }
